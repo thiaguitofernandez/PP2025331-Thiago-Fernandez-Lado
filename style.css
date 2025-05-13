@@ -1,0 +1,92 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    grid-area: header;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+#panel-izquierda {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#panel-izquierda a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#panel-izquierda a:hover {
+    color: #4CAF50;
+}
+
+/* Sección principal */
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "header header"
+        "nav principal";
+    gap: 20px;
+    padding: 20px;
+}
+
+
+
+/* Botones de navegación */
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries */
+
+/* Cuando la pantalla sea menor a 900px, la grilla de #series cambia a 2 columnas */
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "principal";
+    }
+
+    #series {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Cuando la pantalla sea menor a 550px, la grilla de #series cambia a 1 columna */
+@media (max-width: 550px) {
+    #series {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 100%;
+    }
+}
